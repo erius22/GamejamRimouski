@@ -44,8 +44,9 @@ public class ObjectifManager : MonoBehaviour
             //arrow.transform.eulerAngles = new Vector3(0, angle);
             //transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(ActiveTarget.transform.position), 2);
             //float targetAngle = Mathf.Atan2(t_ShootingDirection.y, t_ShootingDirection.x) * Mathf.Rad2Deg;
-            var q = Quaternion.LookRotation(ActiveTarget.transform.position - arrow.transform.position);
+            var q = Quaternion.LookRotation(arrow.transform.position - ActiveTarget.transform.position);
             arrow.transform.rotation = Quaternion.RotateTowards(arrow.transform.rotation, q, 360);
+
         }
     }
     public void setActiveTarget(GameObject target)
