@@ -91,16 +91,15 @@ public class Kid : MonoBehaviour
     {
         switch (state) {
             case State.Wait:
-                StartCoroutine(delayBeforeDelete());
+                //StartCoroutine(delayBeforeDelete());
                 break;
             case State.inCourse:
                 break;
         }
     }
 
-    IEnumerator delayBeforeDelete()
+    public void deleteKid()
     {
-        yield return new WaitForSeconds(delayDeletrePrefab);
         objectifManager.deleteActiveKids();
         Destroy(this.gameObject);
     }

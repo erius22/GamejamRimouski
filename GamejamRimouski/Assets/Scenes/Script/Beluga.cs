@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Beluga : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public ObjectifManager objectifManager;
 
-    void Update()
+    private void OnTriggerExit(Collider collider)
     {
-        
+        if(collider.tag == "kid")
+        {
+            collider.GetComponent<Kid>().deleteKid();
+            objectifManager.spawnKid();
+        }
     }
 
 }

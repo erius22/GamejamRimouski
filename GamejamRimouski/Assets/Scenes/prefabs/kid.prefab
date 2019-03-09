@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 537512852743297926}
   m_Layer: 0
   m_Name: kid
-  m_TagString: Untagged
+  m_TagString: kid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayDeletrePrefab: 30
+  timeAdd: 15
   state: 0
 --- !u!135 &537512852743297926
 SphereCollider:
