@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a608a7d4605da904f8d42a7e72ee346b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: NeverEnding Free Version
+  fontNames:
+  - NeverEnding Free Version
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4daa5d263a6c6b047b2c409e9ab7b9bc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
