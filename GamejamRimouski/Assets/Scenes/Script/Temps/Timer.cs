@@ -32,5 +32,6 @@ public class Timer : MonoBehaviour
     public void AddTime(int addedTime)
     {
         time += addedTime;
+        timeText.text = time.ToString();
     }
 }
