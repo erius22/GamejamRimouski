@@ -1,29 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuAnimation : MonoBehaviour
 {
-    public bool goingUp = true;
+    public bool goingUp = false;
     public float direction;
+    private RectTransform rectTransform;
 
     void Start()
     {
+        rectTransform = this.GetComponent<RectTransform>();
         direction = 5;
     }
     
     void Update()
     {
         if(goingUp)
-            this.gameObject.transform.position += new Vector3(0, 1 * Time.deltaTime, 0);
+            rectTransform.localPosition += new Vector3(0, 1 * Time.deltaTime * 30, 0);
         else
-            this.gameObject.transform.position += new Vector3(0, -1 * Time.deltaTime, 0);
+            rectTransform.localPosition -= new Vector3(0, 1 * Time.deltaTime * 30, 0);
 
        
-        if (this.gameObject.transform.position.y >= -1.25)
+        if (rectTransform.localPosition.y >= 300)
             goingUp = false;
 
-        if (this.gameObject.transform.position.y <= -3.25)
+        if (this.gameObject.transform.position.y <= 150)
             goingUp = true;
 
         this.gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * direction);
