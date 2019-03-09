@@ -7,6 +7,7 @@ public class Kid : MonoBehaviour
 
     public int delayDeletrePrefab = 3;
     private ObjectifManager objectifManager;
+    private Timer timer;
     private List<GameObject> targetsInRayon;
     private List<GameObject> targetsAvaible = new List<GameObject>();
 
@@ -23,6 +24,7 @@ public class Kid : MonoBehaviour
     private void Awake()
     {
         objectifManager = GameObject.Find("GameManager").GetComponent<ObjectifManager>();
+        timer = FindObjectOfType<Timer>();
     }
 
     void Start()
@@ -59,13 +61,21 @@ public class Kid : MonoBehaviour
             {
                 target = targetsAvaible[i];
                 Debug.Log(target.name);
+                startCourse(target);
                 break;
             }
         }
     }
 
+    public void startCourse(GameObject target)
+    {
+        timer.AddTime(30);
+        objectifManager.setActiveTarget(target);
+        state = State.inCourse;
 
-    //Verificatio si le kid collisione avec le player alors on recupere sa cible
+    }
+
+    //Verification si le kid collisione avec le player alors on recupere sa cible
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.tag == "player")
@@ -82,7 +92,7 @@ public class Kid : MonoBehaviour
                 StartCoroutine(delayBeforeDelete());
                 break;
             case State.inCourse:
-
+                
 
                 break;
         }
@@ -91,7 +101,7 @@ public class Kid : MonoBehaviour
     IEnumerator delayBeforeDelete()
     {
         yield return new WaitForSeconds(delayDeletrePrefab);
-        objectifManager.deleteObjectifActive();
+        objectifManager.deleteActiveKids();
         Destroy(this.gameObject);
     }
 }

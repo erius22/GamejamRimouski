@@ -8,11 +8,12 @@ public class ObjectifManager : MonoBehaviour
     //public List<GameObject> listObjectif;
     public List<GameObject> listTarget;
     public GameObject prefabKid;
-    public GameObject hitBoxSpawnObjectif;
+    public GameObject hitBoxSpawnKid;
 
-
+    private GameObject ActiveTarget;
     private Vector3 center;
     public Vector3 size;
+
 
     // Start is called before the first frame update
     public int objectifMax = 3;
@@ -20,26 +21,30 @@ public class ObjectifManager : MonoBehaviour
 
     void Start()
     {
-        spawnObjectif();
+        spawnKid();
     }
 
     private void Update()
     {
         if(objectifActive != 3)
         {
-            spawnObjectif();
+            spawnKid();
         }
     }
-
-    private void spawnObjectif()
+    public void setActiveTarget(GameObject target)
     {
-        center = hitBoxSpawnObjectif.transform.position;
+        this.ActiveTarget = target;
+    }
+
+    private void spawnKid()
+    {
+        center = hitBoxSpawnKid.transform.position;
         Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
         Instantiate(prefabKid, pos, Quaternion.identity);
         objectifActive++;
     }
 
-    public void deleteObjectifActive()
+    public void deleteActiveKids()
     {
         objectifActive--;
     }
