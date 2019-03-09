@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 785666643}
   - component: {fileID: 785666642}
   - component: {fileID: 785666641}
+  - component: {fileID: 2777383639535779448}
   m_Layer: 0
   m_Name: Rock7
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2fd4d71edd84d847abfac1d74b92941, type: 2}
+  - {fileID: 2100000, guid: 4ca47f8a6efdc824d947951b87975e47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,3 +94,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 60c9c19ace4c522459fb5d2243213bd5, type: 3}
+--- !u!136 &2777383639535779448
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785666640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9923461
+  m_Height: 1.2539654
+  m_Direction: 1
+  m_Center: {x: 0.06645683, y: 0.17, z: 0.031894986}
