@@ -6,24 +6,30 @@ using UnityEngine;
 public class ControlPlayer : MonoBehaviour
 {
 
-    [SerializeField]
-    private float forwardSpeedMultiplier = 1;
-    [SerializeField]
-    private float upwardSpeedMultiplier = 1;
+    private float forwardSpeedMultiplier;
+    [SerializeField] private float upwardSpeedMultiplier = 1;
 
     private Rigidbody m_rigidbody;
-    public float maxSpeed = 200f;//Replace with your max speed
+    private float maxSpeed;
 
     private float forwardSpeed;
     private float movementUpward;
 
-    public float horizontalRotationSpeed = 10;
-    public float verticalRotationSpeed = 1;
+    [SerializeField] private float baseSpeedMultiplier = 10;
+    [SerializeField] private float baseMaxSpeed = 200;
+
+    [SerializeField] private float horizontalRotationSpeed = 10;
+    [SerializeField] private float verticalRotationSpeed = 1;
+
+    [SerializeField] private float boostTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-       m_rigidbody = GetComponent<Rigidbody>();
+        m_rigidbody = GetComponent<Rigidbody>();
+
+        forwardSpeedMultiplier = baseSpeedMultiplier;
+        maxSpeed = baseMaxSpeed;
     }
 
     // Update is called once per frame
@@ -76,6 +82,18 @@ public class ControlPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (boostTimer > 0)
+        {
+            boostTimer = boostTimer - Time.deltaTime;
+        }
+        else
+        {
+            forwardSpeedMultiplier = baseSpeedMultiplier;
+            maxSpeed = baseMaxSpeed;
+        }
+
+
         m_rigidbody.AddForce(transform.forward * forwardSpeed, ForceMode.Acceleration);
 
 
@@ -93,5 +111,18 @@ public class ControlPlayer : MonoBehaviour
         }
 
         
+    }
+
+    public void Boost(float boostSpeed, float maxSpeedIncrease, float timer)
+    {
+        if (boostTimer < 0)
+        {
+            baseSpeedMultiplier = forwardSpeedMultiplier;
+            baseMaxSpeed = maxSpeed;
+        }
+
+        boostTimer = boostTimer + timer;
+        forwardSpeedMultiplier = forwardSpeedMultiplier + boostSpeed;
+        maxSpeed = maxSpeed + maxSpeedIncrease;
     }
 }
