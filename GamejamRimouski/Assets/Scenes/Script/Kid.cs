@@ -8,7 +8,7 @@ public class Kid : MonoBehaviour
     public int delayDeletrePrefab = 3;
     private ObjectifManager objectifManager;
     private List<GameObject> targetsInRayon;
-    private List<GameObject> targetsAvaible;
+    private List<GameObject> targetsAvaible = new List<GameObject>();
 
 
     private GameObject target;
@@ -28,26 +28,29 @@ public class Kid : MonoBehaviour
     void Start()
     {
         state = State.Wait;
-        //ShowDistanceTarget();
     }
 
-    public void ShowDistanceTarget()
+    public void getTargetKid()
     {
-        Debug.Log("ShowDistanceTarget");
-        float lastDistance = 0;
         List<GameObject> listTarget = objectifManager.getListTarget();
-
-        for (int i=0;i< listTarget.Count; i++)
+        for (int i = 0; i < listTarget.Count; i++)
         {
-            float dist = Vector3.Distance(this.transform.position, listTarget[i].transform.position);
-            if (dist > lastDistance)
+            int compteur = 0;
+
+            for (int j = 0; j < listTarget.Count; j++)
             {
-                lastDistance = dist;
-                if(i == 3)
+                float dist = Vector3.Distance(this.transform.position, listTarget[i].transform.position);
+                float distToCompare = Vector3.Distance(this.transform.position, listTarget[j].transform.position);
+                if (dist < distToCompare)
                 {
-                    targetsAvaible.Add(listTarget[i].gameObject);
+                    compteur++;
                 }
             }
+            if (compteur < 3 && targetsAvaible.Count < 3)
+            {
+                targetsAvaible.Add(listTarget[i]);
+            }
+
         }
 
         for(int i=0; i< targetsAvaible.Count; i++)
@@ -55,12 +58,24 @@ public class Kid : MonoBehaviour
             if (i == Random.Range(0, targetsAvaible.Count))
             {
                 target = targetsAvaible[i];
+                Debug.Log(target.name);
+                break;
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //Verificatio si le kid collisione avec le player alors on recupere sa cible
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.tag == "player")
+        {
+            getTargetKid();
+        }
+    }
+
+        // Update is called once per frame
+        void Update()
     {
         switch (state) {
             case State.Wait:
@@ -72,8 +87,6 @@ public class Kid : MonoBehaviour
                 break;
         }
     }
-
-
 
     IEnumerator delayBeforeDelete()
     {

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - target
+  - kid
+  - player
   layers:
   - Default
   - TransparentFX

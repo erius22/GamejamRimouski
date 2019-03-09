@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 6442153849417271199}
   - component: {fileID: 6442153849412925439}
   - component: {fileID: 5224891973191242571}
+  - component: {fileID: 537512852743297926}
   m_Layer: 0
   m_Name: kid
   m_TagString: Untagged
@@ -197,5 +198,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227d043b80cde141bcd02dacf66648f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayDeletrePrefab: 4
+  delayDeletrePrefab: 30
   state: 0
+--- !u!135 &537512852743297926
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442153849415014751}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 39.833885
+  m_Center: {x: -3.8437054, y: 3.189742, z: 3.6022246}
