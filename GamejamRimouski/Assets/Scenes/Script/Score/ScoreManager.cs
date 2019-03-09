@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     private int score;
-    public Text scoreText;
+    public int scoreAdd = 15;
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
-        scoreText.text = "Score : " + score.ToString();
+        EventManager.AddListner("addScore", AddScore);
     }
 
-    public void AddScore(int addedScore)
+    public void AddScore(Hashtable data)
     {
-        score += addedScore;
-        scoreText.text = "Score : " + score.ToString();
+
+        score += scoreAdd;
+        EventManager.TriggerEvent("score", new Hashtable() { { "score", score } });
+
     }
 }

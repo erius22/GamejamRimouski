@@ -3,35 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public float time;
-    public Text timeText;
 
     // Start is called before the first frame update
     void Start()
     {
         time = 45;
-        timeText.text = time.ToString();
+        EventManager.AddListner("addTime", AddTime);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        timeText.text = time.ToString();
+        time -=Time.deltaTime;
+        int b = (int)time;
+        EventManager.TriggerEvent("countDown", new Hashtable() { { "countDown", b } });
 
-        if(time <= 0)
+        if (time <= 0)
         {
             //TODO GameOver
         }
         
     }
     
-    public void AddTime(int addedTime)
+    public void AddTime(Hashtable data)
     {
+        int addedTime = (int)data["addTime"];
+
         time += addedTime;
-        timeText.text = time.ToString();
     }
 }
