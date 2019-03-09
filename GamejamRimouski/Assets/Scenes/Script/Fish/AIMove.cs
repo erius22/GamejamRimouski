@@ -25,11 +25,10 @@ public class AIMove : MonoBehaviour
     void Start()
     {
         m_AIManager = transform.parent.GetComponentInParent<AISpawner>();
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponentInChildren<Animator>();
 
         SetUpNPC();
 
-        transform.eulerAngles = new Vector3(90, 0, 90);
     }
 
     void SetUpNPC()
@@ -114,7 +113,9 @@ public class AIMove : MonoBehaviour
         float TurnSpeed = currentSpeed * Random.Range(1f, 1f);
 
         Vector3 LookAt = waypoint - this.transform.position;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookAt), TurnSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookAt), TurnSpeed * Time.deltaTime);
+        var q = Quaternion.LookRotation(transform.position - LookAt);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 360);
         //transform.LookAt(waypoint);
 
     }

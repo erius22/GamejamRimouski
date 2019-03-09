@@ -101,6 +101,7 @@ public class AISpawner : MonoBehaviour
                         Quaternion randomRotation = Quaternion.Euler(Random.Range(-20, 20), Random.Range(0, 360), 0);
 
                         GameObject tempSpawn;
+
                         tempSpawn = Instantiate(AIObject[i].objectPrefab, RandomPosition(), randomRotation);
 
                         tempSpawn.transform.parent = tempGroup.transform;
@@ -119,7 +120,9 @@ public class AISpawner : MonoBehaviour
             Random.Range(-spawnArea.y, spawnArea.y),
             Random.Range(-spawnArea.z, spawnArea.z)
             );
+
         randomPosition = transform.TransformPoint(randomPosition * .5f);
+        Debug.Log(randomPosition);
         return randomPosition;
     }
 
@@ -138,7 +141,7 @@ public class AISpawner : MonoBehaviour
             if (AIObject[i].randomizeStats)
             {
                 //AIObjects[i].maxAI = Random.Range(1, 30);
-                //AIObject[i] = new AIObjects(AIObject[i].AIGroupName, AIObject[i].objectPrefab, Random.Range(1, 30), Random.Range(1, 20), Random.Range(1, 10), AIObject[i].randomizeStats);
+                AIObject[i] = new AIObjects(AIObject[i].AIGroupName, AIObject[i].objectPrefab, Random.Range(1, 30), Random.Range(1, 20), Random.Range(1, 10), AIObject[i].randomizeStats);
                 AIObject[i].setValues(Random.Range(1, 30), Random.Range(1, 20), Random.Range(1, 10));
             }
         }
