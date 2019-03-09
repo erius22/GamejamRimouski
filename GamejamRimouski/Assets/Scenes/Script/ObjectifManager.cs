@@ -16,7 +16,6 @@ public class ObjectifManager : MonoBehaviour
     private Vector3 targetDirection;
     private GameObject ActiveTarget;
     private Vector3 center;
-    public Vector3 size;
 
 
     // Start is called before the first frame update
@@ -25,25 +24,18 @@ public class ObjectifManager : MonoBehaviour
 
     void Start()
     {
-        spawnKid();
+
+        for (int i = 0; i < 3; i++)
+        {
+            spawnKid();
+        }
     }
 
     private void Update()
     {
-        if(objectifActive != 3)
-        {
-            spawnKid();
-        }
 
         if(ActiveTarget != null)
         {
-            Debug.Log(ActiveTarget.transform.position);
-
-            //targetDirection = ActiveTarget.transform.TransformDirection(ActiveTarget.transform.position - arrow.transform.position);
-            //float angle = Mathf.Atan2(-targetDirection.x, targetDirection.y) * Mathf.Rad2Deg;
-            //arrow.transform.eulerAngles = new Vector3(0, angle);
-            //transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(ActiveTarget.transform.position), 2);
-            //float targetAngle = Mathf.Atan2(t_ShootingDirection.y, t_ShootingDirection.x) * Mathf.Rad2Deg;
             var q = Quaternion.LookRotation(arrow.transform.position - ActiveTarget.transform.position);
             arrow.transform.rotation = Quaternion.RotateTowards(arrow.transform.rotation, q, 360);
 
@@ -57,7 +49,8 @@ public class ObjectifManager : MonoBehaviour
     public void spawnKid()
     {
         center = hitBoxSpawnKid.transform.position;
-        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
+        Vector3 sizeHitBoxSpawnKid = new Vector3(hitBoxSpawnKid.transform.position.x, hitBoxSpawnKid.transform.position.y, hitBoxSpawnKid.transform.position.z);
+        Vector3 pos = center + new Vector3(Random.Range(-sizeHitBoxSpawnKid.x / 2, sizeHitBoxSpawnKid.x / 2), Random.Range(-sizeHitBoxSpawnKid.y / 2, sizeHitBoxSpawnKid.y / 2), Random.Range(-sizeHitBoxSpawnKid.z / 2, sizeHitBoxSpawnKid.z / 2));
         Instantiate(prefabKid, pos, Quaternion.identity);
         objectifActive++;
     }
