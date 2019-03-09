@@ -35,7 +35,7 @@ public class CameraFollow : MonoBehaviour
 
         if (xRot != 0 || yRot != 0)
         {
-            transform.Rotate(xRot, yRot, 0.0f);
+            //transform.Rotate(xRot, yRot, 0.0f);
         }
         // Quaternion counterRotationCam = transform.rotation;
         // counterRotationCam.z = counterRotationCam.z * -1;*/

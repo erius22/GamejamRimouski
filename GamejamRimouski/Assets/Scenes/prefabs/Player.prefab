@@ -126,7 +126,7 @@ Rigidbody:
   m_AngularDrag: 10
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 1
 --- !u!1818360609 &2108654996650865091

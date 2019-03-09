@@ -23,6 +23,10 @@ public class ControlPlayer : MonoBehaviour
 
     [SerializeField] private float boostTimer;
 
+    private float horizontal;
+    private float vertical;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,8 +48,8 @@ public class ControlPlayer : MonoBehaviour
         movementUpward = movementUpward * upwardSpeedMultiplier;
         forwardSpeed = forwardSpeed * forwardSpeedMultiplier;
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
 
 
@@ -54,7 +58,6 @@ public class ControlPlayer : MonoBehaviour
 
         //transform.Rotate(0, horizontal * horizontalRotationSpeed, 0f);
 
-        transform.Rotate(vertical * verticalRotationSpeed, 0, 0f);
 
         // transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
 
@@ -65,10 +68,6 @@ public class ControlPlayer : MonoBehaviour
         transform.rotation = q_v;
         */
 
-        transform.RotateAround(transform.position, Vector3.up, horizontalRotationSpeed * horizontal);
-        Quaternion q_h = transform.rotation;
-        q_h.eulerAngles = new Vector3(q_h.eulerAngles.x, q_h.eulerAngles.y, 0);
-        transform.rotation = q_h;
         
         //GetComponent<Rigidbody>().AddForce
 
@@ -92,6 +91,16 @@ public class ControlPlayer : MonoBehaviour
             forwardSpeedMultiplier = baseSpeedMultiplier;
             maxSpeed = baseMaxSpeed;
         }
+
+
+        transform.Rotate(vertical * verticalRotationSpeed, horizontal * horizontalRotationSpeed, 0f);
+
+       // transform.RotateAround(transform.position, Vector3.up, horizontalRotationSpeed * horizontal);
+        Quaternion q_h = transform.rotation;
+        q_h.eulerAngles = new Vector3(q_h.eulerAngles.x, q_h.eulerAngles.y, 0);
+        transform.rotation = q_h;
+
+
 
 
         m_rigidbody.AddForce(transform.forward * forwardSpeed, ForceMode.Acceleration);
