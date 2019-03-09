@@ -1526,7 +1526,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -2901,7 +2901,7 @@ Transform:
   m_GameObject: {fileID: 3470621619295216392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 27.108675, y: 0.44546, z: 23.426054}
+  m_LocalScale: {x: 27.108675, y: 16.658106, z: 26.509678}
   m_Children: []
   m_Father: {fileID: 408730}
   m_RootOrder: 3
