@@ -28,6 +28,8 @@ public class AIMove : MonoBehaviour
         m_animator = GetComponent<Animator>();
 
         SetUpNPC();
+
+        transform.eulerAngles = new Vector3(90, 0, 90);
     }
 
     void SetUpNPC()
@@ -102,17 +104,18 @@ public class AIMove : MonoBehaviour
 
             m_speed = Random.Range(start, end);
             m_animator.speed = m_speed;
-
+            Debug.Log(m_wayPoint);
             return true;
         }
     }
 
     void RotateNPC (Vector3 waypoint, float currentSpeed)
     {
-        float TurnSpeed = currentSpeed * Random.Range(1f, 3f);
+        float TurnSpeed = currentSpeed * Random.Range(1f, 1f);
 
         Vector3 LookAt = waypoint - this.transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookAt), TurnSpeed * Time.deltaTime);
+        //transform.LookAt(waypoint);
 
     }
 }
