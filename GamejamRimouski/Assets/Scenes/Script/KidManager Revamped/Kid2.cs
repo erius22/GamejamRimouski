@@ -68,8 +68,6 @@ public class Kid2 : MonoBehaviour
         Debug.Log("Embark()");
         player.seatAvailable = false;
         player.client = this.gameObject;
-        this.transform.parent = player.transform;
-
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         animator.SetTrigger("swim");
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);

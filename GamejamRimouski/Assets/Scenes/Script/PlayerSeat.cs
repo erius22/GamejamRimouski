@@ -13,6 +13,8 @@ public class PlayerSeat : MonoBehaviour
         if(gameObject.tag == "kid")
         {
             client.GetComponent<Kid2>().animator.SetTrigger("climb");
+            client.transform.parent = this.transform;
+
         }
     }
 
