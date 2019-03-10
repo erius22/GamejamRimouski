@@ -88,7 +88,7 @@ public class AIMove : MonoBehaviour
         }
     }
 
-    bool CanFindTarget (float start = 1f, float end = 7f)
+    bool CanFindTarget (float start = 1f, float end = 4f)
     {
         m_wayPoint = m_AIManager.RandomWayPoint();
 
@@ -113,7 +113,7 @@ public class AIMove : MonoBehaviour
 
         Vector3 LookAt = waypoint - this.transform.position;
         //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookAt), TurnSpeed * Time.deltaTime);
-        var q = Quaternion.LookRotation(transform.position - LookAt);
+        var q = Quaternion.LookRotation(transform.position - waypoint);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 360);
         //transform.LookAt(waypoint);
 
