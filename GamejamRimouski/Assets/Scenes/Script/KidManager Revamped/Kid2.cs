@@ -7,7 +7,7 @@ public class Kid2 : MonoBehaviour
     public bool embarqued = false;
     public bool arrived = false;
     public float timeAlive = 30f;
-    public int timeAdd = 15;
+    public int timeAdd = 5;
     public int scoreAdd = 5;
     public float speed = 1.0f;
     private GameObject GOChildPoubelle;
@@ -33,8 +33,8 @@ public class Kid2 : MonoBehaviour
 
             if (player.seatAvailable)
             {
-                getTargetKid();
-
+                //getTargetKid();
+                FindTarget();
                 Embark();
             }
         }
@@ -95,6 +95,7 @@ public class Kid2 : MonoBehaviour
     {
         animator.SetTrigger("swim");
         isSwming = true;
+        target.gameObject.GetComponent<Target>().isUse = true;
         Debug.Log("embarque + " + target);
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
         player.seatAvailable = false;
