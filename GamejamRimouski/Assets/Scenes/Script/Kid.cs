@@ -9,6 +9,7 @@ public class Kid : MonoBehaviour
 
     public int timeAdd = 15;
     private ObjectifManager objectifManager;
+    private TargetManager targetManager;
     private List<GameObject> targetsInRayon;
     private List<GameObject> targetsAvaible = new List<GameObject>();
 
@@ -25,6 +26,7 @@ public class Kid : MonoBehaviour
     private void Awake()
     {
         objectifManager = GameObject.Find("GameManager").GetComponent<ObjectifManager>();
+        targetManager = FindObjectOfType<TargetManager>();
     }
 
     void Start()
@@ -71,9 +73,9 @@ public class Kid : MonoBehaviour
     public void startCourse(GameObject target)
     {
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
-        EventManager.TriggerEvent("addScore", null);
+        //EventManager.TriggerEvent("addScore", null);
 
-        objectifManager.setActiveTarget(target);
+        targetManager.setActiveTarget(target);
 
     }
 

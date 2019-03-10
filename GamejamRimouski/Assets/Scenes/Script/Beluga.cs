@@ -12,6 +12,7 @@ public class Beluga : MonoBehaviour
         {
             collider.GetComponent<Kid>().deleteKid();
             objectifManager.spawnKid();
+
         }
     }
 
