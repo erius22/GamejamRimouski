@@ -48,11 +48,17 @@ public class ObjectifManager : MonoBehaviour
 
     public void spawnKid()
     {
-        center = hitBoxSpawnKid.transform.position;
-        Vector3 sizeHitBoxSpawnKid = new Vector3(hitBoxSpawnKid.transform.position.x, hitBoxSpawnKid.transform.position.y, hitBoxSpawnKid.transform.position.z);
-        Vector3 pos = center + new Vector3(Random.Range(-sizeHitBoxSpawnKid.x / 2, sizeHitBoxSpawnKid.x / 2), Random.Range(-sizeHitBoxSpawnKid.y / 2, sizeHitBoxSpawnKid.y / 2), Random.Range(-sizeHitBoxSpawnKid.z / 2, sizeHitBoxSpawnKid.z / 2));
-        Instantiate(prefabKid, pos, Quaternion.identity);
-        objectifActive++;
+        Debug.Log(objectifActive);
+        if(objectifActive < objectifMax) {
+            center = hitBoxSpawnKid.transform.position;
+            Vector3 sizeHitBoxSpawnKid = new Vector3(hitBoxSpawnKid.transform.position.x, hitBoxSpawnKid.transform.position.y, hitBoxSpawnKid.transform.position.z);
+            Vector3 pos = center + new Vector3(Random.Range(-sizeHitBoxSpawnKid.x / 2, sizeHitBoxSpawnKid.x / 2), Random.Range(-sizeHitBoxSpawnKid.y / 2, sizeHitBoxSpawnKid.y / 2), Random.Range(-sizeHitBoxSpawnKid.z / 2, sizeHitBoxSpawnKid.z / 2));
+            Debug.Log(sizeHitBoxSpawnKid.x);
+
+            Instantiate(prefabKid, pos, Quaternion.identity);
+            objectifActive++;
+        }
+        
     }
 
     public void deleteActiveKids()

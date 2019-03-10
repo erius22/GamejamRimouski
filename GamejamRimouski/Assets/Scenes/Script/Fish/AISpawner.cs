@@ -122,7 +122,6 @@ public class AISpawner : MonoBehaviour
             );
 
         randomPosition = transform.TransformPoint(randomPosition * .5f);
-        Debug.Log(randomPosition);
         return randomPosition;
     }
 

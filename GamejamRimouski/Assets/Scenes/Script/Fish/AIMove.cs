@@ -103,7 +103,6 @@ public class AIMove : MonoBehaviour
 
             m_speed = Random.Range(start, end);
             m_animator.speed = m_speed;
-            Debug.Log(m_wayPoint);
             return true;
         }
     }
