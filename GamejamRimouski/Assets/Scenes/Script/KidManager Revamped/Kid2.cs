@@ -18,6 +18,7 @@ public class Kid2 : MonoBehaviour
 
     private List<GameObject> targetsAvaible = new List<GameObject>();
     private GameObject target;
+    private Animator animator;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -39,6 +40,7 @@ public class Kid2 : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSeat>();
         targetManager = GameObject.FindGameObjectWithTag("TargetManager");
+        animator = GetComponent<Animator>();
 
     }
 
@@ -67,6 +69,7 @@ public class Kid2 : MonoBehaviour
         this.transform.parent = player.transform;
 
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
+        animator.SetTrigger("swim");
         embarqued = true;
     }
 

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 5224891973191242571}
   - component: {fileID: 3803077002431949670}
   - component: {fileID: 537512852743297926}
+  - component: {fileID: 7472399947151065900}
   m_Layer: 0
   m_Name: kid
   m_TagString: kid
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   embarqued: 0
+  arrived: 0
   timeAlive: 30
   timeAdd: 15
   scoreAdd: 5
@@ -231,3 +233,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 39.833885
   m_Center: {x: -3.8437054, y: 3.189742, z: 3.6022246}
+--- !u!95 &7472399947151065900
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442153849415014751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a1f664ec8ba81e458b9a0d74aa3f92a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
