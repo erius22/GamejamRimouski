@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class MainMenuController : MonoBehaviour
@@ -12,7 +13,20 @@ public class MainMenuController : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject returnButton;
     public GameObject playButton;
+    public GameObject gameOver;
 
+    public Text textScore;
+
+    private void Start()
+    {
+        if (gameOver)
+        {
+            int score = PlayerPrefs.GetInt("score");
+            textScore.text = score.ToString();
+
+
+        }
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
@@ -33,5 +47,15 @@ public class MainMenuController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void GameOver()
+    {
+
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 }

@@ -12,8 +12,14 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         EventManager.AddListner("addScore", AddScore);
+        EventManager.AddListner("setScoreParam", OnGameOver);
     }
 
+    private void OnGameOver(Hashtable data)
+    {
+        PlayerPrefs.SetInt("score", score);
+
+    }
     public void AddScore(Hashtable data)
     {
 
