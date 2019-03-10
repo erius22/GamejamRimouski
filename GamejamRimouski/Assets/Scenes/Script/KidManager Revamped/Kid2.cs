@@ -33,6 +33,8 @@ public class Kid2 : MonoBehaviour
 
             if (player.seatAvailable)
             {
+                getTargetKid();
+
                 Embark();
             }
         }
@@ -92,7 +94,6 @@ public class Kid2 : MonoBehaviour
         animator.SetTrigger("swim");
         isSwming = true;
 
-        FindTarget();
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
         player.seatAvailable = false;
         player.client = this.gameObject;
@@ -110,9 +111,46 @@ public class Kid2 : MonoBehaviour
         this.transform.parent = GOChildPoubelle.transform;
         player.isOnBeluga = false;
         animator.SetTrigger("eject");
-
+        targetManager.GetComponent<TargetManager>().removeActiveTarget();
 
         EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });
+    }
+
+
+    public void getTargetKid()
+    {
+        List<GameObject> listTarget = spawner.gettargetList();
+        for (int i = 0; i < listTarget.Count; i++)
+        {
+            int compteur = 0;
+
+            for (int j = 0; j < listTarget.Count; j++)
+            {
+                float dist = Vector3.Distance(this.transform.position, listTarget[i].transform.position);
+                float distToCompare = Vector3.Distance(this.transform.position, listTarget[j].transform.position);
+                if (dist < distToCompare)
+                {
+                    compteur++;
+                }
+            }
+            if (compteur < 3 && targetsAvaible.Count < 3)
+            {
+                targetsAvaible.Add(listTarget[i]);
+            }
+
+        }
+
+        for (int i = 0; i < targetsAvaible.Count; i++)
+        {
+            if (i == Random.Range(0, targetsAvaible.Count))
+            {
+                Debug.Log("tata");
+
+                target = targetsAvaible[i];
+
+                break;
+            }
+        }
     }
 
     public void FindTarget()

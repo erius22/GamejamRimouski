@@ -26,6 +26,7 @@ public class ScoreManager : MonoBehaviour
         int addedScore = (int)data["addScore"];
 
         score += scoreAdd;
+        EventManager.TriggerEvent("score", new Hashtable() { { "score", score } });
 
     }
 }
