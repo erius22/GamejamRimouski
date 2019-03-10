@@ -8,5 +8,13 @@ public class PlayerSeat : MonoBehaviour
     
     public GameObject client;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(gameObject.tag == "kid")
+        {
+            client.GetComponent<Kid2>().animator.SetTrigger("climb");
+        }
+    }
+
 
 }

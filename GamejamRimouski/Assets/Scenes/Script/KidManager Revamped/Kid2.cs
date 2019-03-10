@@ -9,7 +9,7 @@ public class Kid2 : MonoBehaviour
     public float timeAlive = 30f;
     public int timeAdd = 15;
     public int scoreAdd = 5;
-    
+    public float speed = 1.0f;
 
     private KidSpawnerManager spawner;
     private GameManager gameManager;
@@ -18,7 +18,7 @@ public class Kid2 : MonoBehaviour
 
     private List<GameObject> targetsAvaible = new List<GameObject>();
     private GameObject target;
-    private Animator animator;
+    public Animator animator;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -61,6 +61,8 @@ public class Kid2 : MonoBehaviour
 
     public void Embark()
     {
+        float step = speed * Time.deltaTime;
+
         FindTarget();
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
         Debug.Log("Embark()");
@@ -70,8 +72,10 @@ public class Kid2 : MonoBehaviour
 
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         animator.SetTrigger("swim");
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         embarqued = true;
     }
+
 
     public void Disembark()
     {
@@ -81,6 +85,8 @@ public class Kid2 : MonoBehaviour
         timeAlive = 20f;
         embarqued = false;
         this.transform.parent = null;
+        animator.SetTrigger("eject");
+
 
         EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });
     }
