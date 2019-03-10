@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e395ff70343bc41b056e3d8092c263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseSpeed: 50
-  increaseMaxSpeed: 50
+  increaseSpeed: 400
+  increaseMaxSpeed: 800
   time: 2.5
+  boostCooldown: 2.5

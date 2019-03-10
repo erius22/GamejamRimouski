@@ -25,7 +25,7 @@ public class BoostPower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isUsed)
+        /*if (isUsed)
         {
             this.gameObject.SetActive(false);
             boostCooldown -= Time.deltaTime;
@@ -37,7 +37,7 @@ public class BoostPower : MonoBehaviour
         {
             isUsed = false;
             this.gameObject.SetActive(true);
-        }
+        }*/
 
     }
 
