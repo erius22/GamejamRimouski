@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Kid2 : MonoBehaviour
 {
+
     public bool embarqued = false;
     public bool arrived = false;
     public float timeAlive = 30f;
     public int timeAdd = 15;
     public int scoreAdd = 5;
     public float speed = 1.0f;
-    private GameObject GOChildPoubelle;
-
+    public bool isSwiming = false;
 
     private KidSpawnerManager spawner;
     private GameManager gameManager;
@@ -21,20 +21,14 @@ public class Kid2 : MonoBehaviour
     private List<GameObject> targetsAvaible = new List<GameObject>();
     private GameObject target;
     public Animator animator;
-    public bool isSwming;
 
     private void OnTriggerEnter(Collider collider)
     {
         if (arrived) return;
-
-
         if(collider.tag == "Player")
         {
-
-            if (player.seatAvailable)
+            if(player.seatAvailable)
             {
-                getTargetKid();
-
                 Embark();
             }
         }
@@ -59,15 +53,16 @@ public class Kid2 : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSeat>();
         targetManager = GameObject.FindGameObjectWithTag("TargetManager");
-        GOChildPoubelle = GameObject.Find("GOChildPoubelle");
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+        Debug.Log("start : " + this.transform.position);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!embarqued)
+        Debug.Log("update : " + this.transform.position);
+        if (!embarqued)
         {
             timeAlive -= Time.deltaTime;
         }
@@ -77,18 +72,6 @@ public class Kid2 : MonoBehaviour
             else EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });
             Destroy(this.gameObject);
         }
-
-        if (isSwming)
-        {
-            kidSwiming();
-        }
-    }
-
-    private void kidSwiming()
-    {
-        this.transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        var q = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 360);
     }
 
     public void Embark()
@@ -97,34 +80,39 @@ public class Kid2 : MonoBehaviour
         isSwming = true;
         Debug.Log("embarque + " + target);
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
+        Debug.Log("Embark()");
         player.seatAvailable = false;
         player.client = this.gameObject;
+        this.transform.parent = player.transform;
+        KidArrow arrow = GetComponentInChildren<KidArrow>();
+        arrow.gameObject.SetActive(false);
+
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
+        animator.SetTrigger("swim");
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         embarqued = true;
     }
 
 
     public void Disembark()
     {
+
         spawner.removeKids();
         arrived = true;
+        Debug.Log("Disembark()");
         timeAlive = 20f;
         embarqued = false;
-        this.transform.parent = GOChildPoubelle.transform;
-        player.isOnBeluga = false;
+        this.transform.parent = null;
+
         animator.SetTrigger("eject");
         targetManager.GetComponent<TargetManager>().removeActiveTarget();
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });
     }
 
+        target = null;
+        targetManager.GetComponent<TargetManager>().removeActiveTarget();
 
-    public void getTargetKid()
-    {
-        List<GameObject> listTarget = spawner.gettargetList();
-        for (int i = 0; i < listTarget.Count; i++)
-        {
-            int compteur = 0;
 
             for (int j = 0; j < listTarget.Count; j++)
             {

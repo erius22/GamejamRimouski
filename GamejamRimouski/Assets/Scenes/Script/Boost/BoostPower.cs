@@ -12,6 +12,9 @@ public class BoostPower : MonoBehaviour
     public float time = 2.5f;
 
 
+    public float boostCooldown = 2.5f;
+    private bool isUsed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +24,20 @@ public class BoostPower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isUsed)
+        {
+            this.gameObject.SetActive(false);
+            boostCooldown -= Time.deltaTime;
+        }
+
         
+
+        if(boostCooldown <= 0)
+        {
+            isUsed = false;
+            this.gameObject.SetActive(true);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +46,7 @@ public class BoostPower : MonoBehaviour
         {
             other.GetComponent<ControlPlayer>().Boost(increaseSpeed, increaseMaxSpeed, time);
 
-            Destroy(gameObject);
+            isUsed = true;
         }
     }
 }
