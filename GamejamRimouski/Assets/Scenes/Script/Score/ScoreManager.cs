@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField]
     private int score;
     public int scoreAdd = 15;
     // Start is called before the first frame update

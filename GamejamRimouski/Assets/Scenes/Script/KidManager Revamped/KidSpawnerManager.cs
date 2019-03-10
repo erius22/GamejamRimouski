@@ -6,10 +6,11 @@ public class KidSpawnerManager : MonoBehaviour
 {
     public GameObject kidPrefab;
     public List<Transform> spawnPointList;
+    public List<GameObject> targetList;
     public int maxKids = 3;
 
     public float minSpawnTime = 1f;
-    public float maxSpawnTime = 5f;
+    public float maxSpawnTime = 3f;
 
     private int numberOfKids;
 
@@ -31,15 +32,18 @@ public class KidSpawnerManager : MonoBehaviour
         yield return new WaitForSeconds(a_Delay);
 
         int spawnPointID = Random.Range(0, spawnPointList.Count);
-
-        Instantiate(kidPrefab,spawnPointList[spawnPointID].transform.position,Quaternion.identity);
-
-        numberOfKids++;
-
-        float t_NewDelay = Random.Range(minSpawnTime, maxSpawnTime);
         if (numberOfKids < maxKids)
         {
-            StartCoroutine(SpawnKid(t_NewDelay));
+            Instantiate(kidPrefab,spawnPointList[spawnPointID].transform.position,Quaternion.identity);
+
+            numberOfKids++;
         }
+
+        float t_NewDelay = Random.Range(minSpawnTime, maxSpawnTime);
+        
+        StartCoroutine(SpawnKid(t_NewDelay));
+        
     }
+    
+    
 }

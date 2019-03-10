@@ -9,6 +9,7 @@ TagManager:
   - kid
   - player
   - waypoint
+  - TargetManager
   layers:
   - Default
   - TransparentFX

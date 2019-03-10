@@ -20,7 +20,7 @@ public class TargetManager : MonoBehaviour
         arrow.SetActive(true);
         if (activeTarget == null)
         {
-            arrow.SetActive(false);
+            //arrow.SetActive(false);
         }
 
         if (activeTarget != null)
