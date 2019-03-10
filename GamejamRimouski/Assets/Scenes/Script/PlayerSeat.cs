@@ -15,7 +15,7 @@ public class PlayerSeat : MonoBehaviour
         if(other.gameObject.tag == "kid" && !client.GetComponent<Kid2>().arrived)
         {
             client.GetComponent<Kid2>().animator.SetTrigger("climb");
-            client.GetComponent<Kid2>().isSwiming = false;
+            client.GetComponent<Kid2>().isSwming = false;
             isOnBeluga = true;
             client.transform.parent = this.transform;
 
