@@ -39,10 +39,12 @@ public class TargetManager : MonoBehaviour
     public void setActiveTarget(GameObject target)
     {
         this.activeTarget = target;
+        activeTarget.gameObject.SetActive(true);
         Debug.Log(activeTarget);
     }
     public void removeActiveTarget()
     {
+        activeTarget.gameObject.SetActive(false);
         activeTarget = null;
     }
 }
