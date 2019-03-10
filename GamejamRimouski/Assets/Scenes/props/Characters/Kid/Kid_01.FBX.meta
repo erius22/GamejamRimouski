@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: 75014327b8e69264fa45fe459eff201c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: IK Chain001
+    100002: IK Chain002
+    100004: //RootNode
+    100006: Kid_COG
+    100008: Kid_head_bone
+    100010: Kid_head_bone_end
+    100012: Kid_head_ctrl
+    100014: Kid_L_arm_bone
+    100016: Kid_L_arm_ctrl
+    100018: Kid_L_armEnd_bone
+    100020: Kid_L_clav_bone
+    100022: Kid_L_clav_ctrl
+    100024: kid_L_foot_bone
+    100026: kid_L_foot_ctrl
+    100028: kid_L_footEnd_bone
+    100030: kid_L_footRoll_ctrl
+    100032: Kid_L_foreArm_bone
+    100034: Kid_L_foreArm_ctrl
+    100036: Kid_L_hand_bone
+    100038: Kid_L_hand_ctrl
+    100040: Kid_L_handEnd_bone
+    100042: kid_L_leg_upvector
+    100044: kid_L_legEnd_bone
+    100046: kid_L_legLow_bone
+    100048: kid_L_legUp_bone
+    100050: kid_L_toe_bone
+    100052: kid_L_toe_bone_End
+    100054: kid_L_toeRoll_ctrl
+    100056: Kid_mesh
+    100058: Kid_neck_bone
+    100060: Kid_neck_ctrl
+    100062: Kid_pelvis_bone
+    100064: Kid_pelvis_bone_End
+    100066: Kid_R_arm_bone
+    100068: Kid_R_arm_ctrl
+    100070: Kid_R_armEnd_bone
+    100072: Kid_R_clav_bone
+    100074: Kid_R_clav_ctrl
+    100076: kid_R_foot_bone
+    100078: kid_R_foot_ctrl
+    100080: kid_R_footEnd_bone
+    100082: kid_R_footRoll_ctrl
+    100084: Kid_R_foreArm_bone
+    100086: Kid_R_foreArm_ctrl
+    100088: Kid_R_hand_bone
+    100090: Kid_R_hand_ctrl
+    100092: Kid_R_handEnd_bone
+    100094: kid_R_leg_upvector
+    100096: kid_R_legEnd_bone
+    100098: kid_R_legLow_bone
+    100100: kid_R_legUp_bone
+    100102: kid_R_toe_bone
+    100104: kid_R_toe_bone_End
+    100106: kid_R_toeRoll_ctrl
+    100108: Kid_spine_bone_001
+    100110: Kid_spine_bone_002
+    100112: Kid_spine_bone_003
+    100114: Kid_spine_ctrl_001
+    100116: Kid_spine_ctrl_002
+    100118: Kid_spine_ctrl_003
+    100120: Sphere001
+    100122: Sphere002
+    400000: IK Chain001
+    400002: IK Chain002
+    400004: //RootNode
+    400006: Kid_COG
+    400008: Kid_head_bone
+    400010: Kid_head_bone_end
+    400012: Kid_head_ctrl
+    400014: Kid_L_arm_bone
+    400016: Kid_L_arm_ctrl
+    400018: Kid_L_armEnd_bone
+    400020: Kid_L_clav_bone
+    400022: Kid_L_clav_ctrl
+    400024: kid_L_foot_bone
+    400026: kid_L_foot_ctrl
+    400028: kid_L_footEnd_bone
+    400030: kid_L_footRoll_ctrl
+    400032: Kid_L_foreArm_bone
+    400034: Kid_L_foreArm_ctrl
+    400036: Kid_L_hand_bone
+    400038: Kid_L_hand_ctrl
+    400040: Kid_L_handEnd_bone
+    400042: kid_L_leg_upvector
+    400044: kid_L_legEnd_bone
+    400046: kid_L_legLow_bone
+    400048: kid_L_legUp_bone
+    400050: kid_L_toe_bone
+    400052: kid_L_toe_bone_End
+    400054: kid_L_toeRoll_ctrl
+    400056: Kid_mesh
+    400058: Kid_neck_bone
+    400060: Kid_neck_ctrl
+    400062: Kid_pelvis_bone
+    400064: Kid_pelvis_bone_End
+    400066: Kid_R_arm_bone
+    400068: Kid_R_arm_ctrl
+    400070: Kid_R_armEnd_bone
+    400072: Kid_R_clav_bone
+    400074: Kid_R_clav_ctrl
+    400076: kid_R_foot_bone
+    400078: kid_R_foot_ctrl
+    400080: kid_R_footEnd_bone
+    400082: kid_R_footRoll_ctrl
+    400084: Kid_R_foreArm_bone
+    400086: Kid_R_foreArm_ctrl
+    400088: Kid_R_hand_bone
+    400090: Kid_R_hand_ctrl
+    400092: Kid_R_handEnd_bone
+    400094: kid_R_leg_upvector
+    400096: kid_R_legEnd_bone
+    400098: kid_R_legLow_bone
+    400100: kid_R_legUp_bone
+    400102: kid_R_toe_bone
+    400104: kid_R_toe_bone_End
+    400106: kid_R_toeRoll_ctrl
+    400108: Kid_spine_bone_001
+    400110: Kid_spine_bone_002
+    400112: Kid_spine_bone_003
+    400114: Kid_spine_ctrl_001
+    400116: Kid_spine_ctrl_002
+    400118: Kid_spine_ctrl_003
+    400120: Sphere001
+    400122: Sphere002
+    2100000: 'Material #55'
+    2100002: 'Material #2'
+    2100004: 'Material #34'
+    2300000: Sphere001
+    2300002: Sphere002
+    3300000: Sphere001
+    3300002: Sphere002
+    4300000: Sphere001
+    4300002: Sphere002
+    4300004: Kid_mesh
+    7400000: Swim
+    7400002: Climb
+    7400004: Eject
+    7400006: Idle
+    9500000: //RootNode
+    13700000: Kid_mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
