@@ -159,13 +159,24 @@ public class ControlPlayer : MonoBehaviour
         {
             anim.SetTrigger("Rotating");
             anim.ResetTrigger("StopRotating");
+            anim.SetBool("IsRotating", true);
 
         }
         else
         {
             anim.ResetTrigger("Rotating");
             anim.SetTrigger("StopRotating");
+            anim.SetBool("IsRotating", false);
 
+        }
+
+        if (m_rigidbody.velocity.magnitude > 0)
+        {
+            anim.SetBool("GoingForward", true);
+        }
+        else
+        {
+            anim.SetBool("GoingForward", false);
         }
 
         
