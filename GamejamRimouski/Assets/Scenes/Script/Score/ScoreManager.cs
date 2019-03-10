@@ -22,9 +22,9 @@ public class ScoreManager : MonoBehaviour
     }
     public void AddScore(Hashtable data)
     {
+        int addedScore = (int)data["addScore"];
 
         score += scoreAdd;
-        EventManager.TriggerEvent("score", new Hashtable() { { "score", score } });
 
     }
 }
