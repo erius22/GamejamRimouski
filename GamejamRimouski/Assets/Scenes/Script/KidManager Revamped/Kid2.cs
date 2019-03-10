@@ -41,13 +41,15 @@ public class Kid2 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSeat>();
         targetManager = GameObject.FindGameObjectWithTag("TargetManager");
         animator = GetComponent<Animator>();
+        Debug.Log("start : " + this.transform.position);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!embarqued)
+        Debug.Log("update : " + this.transform.position);
+        if (!embarqued)
         {
             timeAlive -= Time.deltaTime;
         }
@@ -68,6 +70,8 @@ public class Kid2 : MonoBehaviour
         Debug.Log("Embark()");
         player.seatAvailable = false;
         player.client = this.gameObject;
+        this.transform.parent = player.transform;
+
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         animator.SetTrigger("swim");
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
@@ -77,13 +81,19 @@ public class Kid2 : MonoBehaviour
 
     public void Disembark()
     {
+
         spawner.removeKids();
         arrived = true;
         Debug.Log("Disembark()");
         timeAlive = 20f;
         embarqued = false;
         this.transform.parent = null;
+
         animator.SetTrigger("eject");
+
+
+        target = null;
+        targetManager.GetComponent<TargetManager>().removeActiveTarget();
 
 
         EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });

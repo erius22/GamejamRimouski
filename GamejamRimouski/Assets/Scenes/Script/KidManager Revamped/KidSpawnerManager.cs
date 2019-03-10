@@ -32,9 +32,14 @@ public class KidSpawnerManager : MonoBehaviour
         yield return new WaitForSeconds(a_Delay);
 
         int spawnPointID = Random.Range(0, spawnPointList.Count);
+
+        Debug.Log(spawnPointList[spawnPointID].transform.position);
         if (numberOfKids < maxKids)
         {
-            Instantiate(kidPrefab,spawnPointList[spawnPointID].transform.position,Quaternion.identity);
+            GameObject kid = Instantiate(kidPrefab,spawnPointList[spawnPointID].transform.position,Quaternion.identity);
+            kid.transform.position = spawnPointList[spawnPointID].transform.position;
+
+            Debug.Log("instantiate : " + kid.transform.position);
 
             numberOfKids++;
         }
