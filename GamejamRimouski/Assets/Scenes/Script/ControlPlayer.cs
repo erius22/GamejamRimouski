@@ -26,11 +26,23 @@ public class ControlPlayer : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    public Animator anim;
+
+    public float maxTurnAnimationVertical = 0.8f;
+    public float minTurnAnimationVertical = -0.8f;
+
+    public float maxTurnAnimationHorizontal = 0.8f;
+    public float minTurnAnimationHorizontal = -0.8f;
+
+    private float verticalAnimation;
+    private float horizontalAnimation;
+
 
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+       // anim = GetComponent<Animator>();
 
         forwardSpeedMultiplier = baseSpeedMultiplier;
         maxSpeed = baseMaxSpeed;
@@ -117,6 +129,43 @@ public class ControlPlayer : MonoBehaviour
         if (m_rigidbody.velocity.magnitude > maxSpeed)
         {
             m_rigidbody.velocity = m_rigidbody.velocity.normalized * maxSpeed;
+        }
+
+        anim.SetFloat("Velocite", m_rigidbody.velocity.magnitude);
+        verticalAnimation = vertical;
+        if (verticalAnimation > maxTurnAnimationVertical)
+        {
+            verticalAnimation = maxTurnAnimationVertical;
+        }
+        else if (verticalAnimation < minTurnAnimationVertical)
+        {
+            verticalAnimation = minTurnAnimationVertical;
+        }
+
+        horizontalAnimation = horizontal;
+        if (horizontalAnimation > maxTurnAnimationHorizontal)
+        {
+            horizontalAnimation = maxTurnAnimationHorizontal;
+        }
+        else if (horizontalAnimation < minTurnAnimationHorizontal)
+        {
+            horizontalAnimation = minTurnAnimationHorizontal;
+        }
+
+        anim.SetFloat("Upward", verticalAnimation);
+        anim.SetFloat("SidewaySpeed", horizontalAnimation);
+
+        if (vertical != 0 || horizontal != 0)
+        {
+            anim.SetTrigger("Rotating");
+            anim.ResetTrigger("StopRotating");
+
+        }
+        else
+        {
+            anim.ResetTrigger("Rotating");
+            anim.SetTrigger("StopRotating");
+
         }
 
         
