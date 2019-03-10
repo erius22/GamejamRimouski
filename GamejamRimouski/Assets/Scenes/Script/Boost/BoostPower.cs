@@ -15,6 +15,7 @@ public class BoostPower : MonoBehaviour
     public float boostCooldown = 2.5f;
     private bool isUsed = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class BoostPower : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<ControlPlayer>().Boost(increaseSpeed, increaseMaxSpeed, time);
-
+            other.GetComponent<AudioSource>().Play();
             isUsed = true;
         }
     }
