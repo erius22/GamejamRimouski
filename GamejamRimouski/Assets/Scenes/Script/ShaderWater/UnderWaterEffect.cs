@@ -10,13 +10,13 @@ public class UnderWaterEffect : MonoBehaviour
     [Range(0.001f, 0.1f)]
     public float _pixelOffset;
 
-    [Range(0.001f,10f)]
+    [Range(0.1f,10f)]
     public float _noiseScale;
 
-    [Range(0.001f, 20f)]
+    [Range(0.1f, 20f)]
     public float _noiseFrequency;
 
-    [Range(0.001f, 30f)]
+    [Range(0.1f, 30f)]
     public float _noiseSpeed;
 
 
