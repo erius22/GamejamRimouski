@@ -5,17 +5,10 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
 
-    public bool isUse;
-
-    private void Start()
-    {
-        isUse = false;
-    }
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.tag == "Player" && isUse)
+        if(collider.tag == "Player")
         {
-            isUse = false;
             PlayerSeat seat = collider.GetComponent<PlayerSeat>();
 
             seat.client.GetComponent<Kid2>().Disembark();

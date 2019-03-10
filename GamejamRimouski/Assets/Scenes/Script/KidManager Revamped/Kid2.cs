@@ -95,8 +95,6 @@ public class Kid2 : MonoBehaviour
     {
         animator.SetTrigger("swim");
         isSwming = true;
-        target.gameObject.GetComponent<Target>().isUse = true;
-        Debug.Log("embarque + " + target);
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
         player.seatAvailable = false;
         player.client = this.gameObject;
