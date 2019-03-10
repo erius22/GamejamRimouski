@@ -45,6 +45,8 @@ public class Kid2 : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isSwming = false;
+            target = null;
+            //targetManager.GetComponent<TargetManager>().arrow.SetActive(false);
 
         }
     }
@@ -93,7 +95,7 @@ public class Kid2 : MonoBehaviour
     {
         animator.SetTrigger("swim");
         isSwming = true;
-
+        Debug.Log("embarque + " + target);
         targetManager.GetComponent<TargetManager>().setActiveTarget(target);
         player.seatAvailable = false;
         player.client = this.gameObject;
@@ -112,7 +114,7 @@ public class Kid2 : MonoBehaviour
         player.isOnBeluga = false;
         animator.SetTrigger("eject");
         targetManager.GetComponent<TargetManager>().removeActiveTarget();
-
+        EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         EventManager.TriggerEvent("addScore", new Hashtable() { { "addScore", scoreAdd } });
     }
 
@@ -137,9 +139,18 @@ public class Kid2 : MonoBehaviour
             {
                 targetsAvaible.Add(listTarget[i]);
             }
+            else
+            {
+                for(int compteurFailSafe = 0; compteurFailSafe< listTarget.Count; compteurFailSafe++)
+                {
+                    targetsAvaible.Add(listTarget[compteurFailSafe]);
+
+                }
+
+            }
 
         }
-
+        Debug.Log("kid de target ) +" + targetsAvaible);
         for (int i = 0; i < targetsAvaible.Count; i++)
         {
             if (i == Random.Range(0, targetsAvaible.Count))

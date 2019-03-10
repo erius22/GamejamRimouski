@@ -7,7 +7,7 @@ public class Kid : MonoBehaviour
 
     public int delayDeletrePrefab = 3;
 
-    public int timeAdd = 15;
+    public int timeAdd = 5;
     private ObjectifManager objectifManager;
     private TargetManager targetManager;
     private List<GameObject> targetsInRayon;
@@ -74,7 +74,6 @@ public class Kid : MonoBehaviour
     {
         EventManager.TriggerEvent("addTime", new Hashtable() { { "addTime", timeAdd } });
         //EventManager.TriggerEvent("addScore", null);
-
         targetManager.setActiveTarget(target);
 
     }

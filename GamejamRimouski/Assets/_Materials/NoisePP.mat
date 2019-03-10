@@ -30,10 +30,10 @@ Material:
     m_Floats:
     - _Glossiness: 0.38
     - _Metallic: 0
-    - _NoiseFrequency: 4.5
-    - _NoiseScale: 2.5
-    - _NoiseSpeed: 9.3
-    - _PixelOffset: 0.008
+    - _NoiseFrequency: 2
+    - _NoiseScale: 0.5
+    - _NoiseSpeed: 9.7
+    - _PixelOffset: 0.003
     - _Tess: 5.67
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
