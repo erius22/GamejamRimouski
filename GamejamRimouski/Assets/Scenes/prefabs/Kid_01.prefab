@@ -1024,6 +1024,7 @@ MonoBehaviour:
   scoreAdd: 5
   speed: 1
   animator: {fileID: 0}
+  isSwming: 0
 --- !u!1 &493039626524284861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493039626524284871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.01, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493039626524314523}
@@ -1228,8 +1229,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 75014327b8e69264fa45fe459eff201c, type: 3}
-  - {fileID: 2100004, guid: 75014327b8e69264fa45fe459eff201c, type: 3}
+  - {fileID: 2100000, guid: f02cd393341a5724284b27ba47a862a6, type: 2}
+  - {fileID: 2100000, guid: 95187ed812b03e34f84b11afc425ed3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
